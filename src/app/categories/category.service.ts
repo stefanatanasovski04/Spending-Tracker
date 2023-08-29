@@ -88,17 +88,17 @@ export class CategoryService {
     {
       id: 0,
       name: 'Food',
-      icon: this.getIcon(0)
+      icon: this.getIcon(10)
     },
     {
       id: 1,
       name: 'Office',
-      icon: this.getIcon(1)
+      icon: this.getIcon(6)
     },
     {
       id: 2,
       name: 'Sports',
-      icon: this.getIcon(2)
+      icon: this.getIcon(8)
     }
   ];
 

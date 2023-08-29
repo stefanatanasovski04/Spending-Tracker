@@ -1,1 +1,47 @@
-<p>transaction-list works!</p>
+
+
+<div class="row mt-2">
+    <h2 class="col-lg-6">Transactions</h2>
+    <div class="col-3 offset-3">
+        <a class="btn btn-success" [routerLink]="['/transactions','add']" >Add Transaction</a>
+    </div>
+</div>
+
+<div class="row saldo">
+    <div class="col-4 offset-2 saldo-income">
+        <div class="total-income">$2500</div>
+    </div>
+    <div class="col-4 saldo-expense">
+        <div class="total-expense">$2500</div>
+    </div>
+</div>
+
+<ul class="category-list">
+    <li *ngFor="let transaction of transactions" class="mt-2">
+        <div class="card-holder col-12">
+            <div class="row g-0 list-row">
+              <div class="col-lg-2 mb-2 mt-2 ">
+                <img [src]="transaction.category?.icon?.iconUrl" class="thumbnail-list" alt="...">
+              </div>
+              <div *ngIf="transaction?.note" class="col-lg-3 title-wrapper">
+                <h5 class="card-title">{{transaction?.note}}</h5>
+              </div>
+              <div *ngIf="!transaction?.note" class="col-lg-3 title-wrapper">
+                <h5 class="card-title">{{transaction?.category?.name}}</h5>
+              </div>
+              
+              <div class="col-lg-2 title-wrapper">
+                <h5 class="card-title">{{transaction?.date | date}}</h5>
+              </div>
+              <div class="col-lg-2">
+                <h5  [ngClass]="{'income': transaction.type == 0, 'expense': transaction.type == 1}">${{transaction?.amount}}</h5>
+              </div>
+              
+              <div class="col-lg-2 dugme mt-4 mb-2">
+                <a [routerLink]="['/transactions',transaction.id,'edit']" class="btn btn-outline-danger btn-wrapper"
+                  style="width: 90px; height: 90px;"><i>Edit</i></a>
+              </div>
+            </div>
+          </div>
+    </li>
+</ul>

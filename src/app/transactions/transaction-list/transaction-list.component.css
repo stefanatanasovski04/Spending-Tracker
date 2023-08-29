@@ -1,0 +1,44 @@
+.income{
+    color: rgb(55, 211, 55);
+}
+.expense{
+    color: red;
+}
+
+.saldo-income{
+    background-color: rgb(151, 231, 176);
+    border-radius: 10px;
+    height: 40px;
+    position: relative;
+}
+.saldo-expense{
+    background-color: rgb(255, 164, 164);
+    border-radius: 10px;
+    position: relative;
+}
+.total-income{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   padding: 10px;
+   font-size: 25px;
+   color: rgb(8, 107, 40);
+}
+.total-expense{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    font-size: 25px;
+    color: rgb(161, 8, 8);
+ }
+
+ .card-holder{
+    border: 1px solid sandybrown;
+    border-radius: 15px;
+ }
+ ul{
+    list-style: none;
+ }
