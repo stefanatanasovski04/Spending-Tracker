@@ -15,6 +15,46 @@ export class TransactionService {
     return this.transactions;
   }
 
+  getTransaction(id: number): Transaction | undefined{
+    return this.transactions.find(e => e.id === id);
+  }
+
+  createTransaction(transaction: any){
+    transaction.id = Math.max(...this.getTransactions().map(o => o.id)) + 1;
+    this.transactions.push(transaction as Transaction);
+    this.totalIncome();
+    this.totalExpense();
+  }
+
+  updateTransaction(transaction: Transaction){
+    let objIndex = this.transactions.findIndex((obj => obj.id == transaction.id));
+    this.transactions[objIndex] = transaction;
+    this.totalIncome();
+    this.totalExpense();
+  }
+
+  totalIncome(): number{
+    let total: number = 0;
+    this.transactions.forEach((t) => {
+      if(t.type == 0){
+        total = Number(total) + Number(t.amount);
+      }
+    } );
+    console.log('Income: ' + total);
+    return total;
+  }
+
+  totalExpense(): number{
+    let total: number = 0;
+    this.transactions.forEach((t) => {
+      if(t.type == 1){
+        total = Number(total) + Number(t.amount);
+      }
+    } );
+    console.log('Expense: ' + total);
+    return total;
+  }
+
 
   transactions: Transaction[] = [
     {
@@ -41,5 +81,5 @@ export class TransactionService {
       amount: 230,
       note: ''
     },
-  ]
+  ];
 }

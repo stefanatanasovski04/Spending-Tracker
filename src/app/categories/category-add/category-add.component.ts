@@ -18,7 +18,6 @@ export class CategoryAddComponent {
 
   constructor(
     private categoryService: CategoryService,
-    private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
   ) { }

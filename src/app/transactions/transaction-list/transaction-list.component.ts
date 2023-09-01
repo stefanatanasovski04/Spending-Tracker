@@ -11,6 +11,8 @@ import { Transaction } from 'src/app/models/transactions';
 export class TransactionListComponent {
 
   transactions!: Transaction[];
+  income!: number;
+  expense!: number;
   
   constructor(
     private transactionService: TransactionService,
@@ -18,6 +20,8 @@ export class TransactionListComponent {
     ){}
 
     ngOnInit(){
-      this.transactions = this.transactionService.getTransactions()
+      this.transactions = this.transactionService.getTransactions();
+      this.income = this.transactionService.totalIncome();
+      this.expense = this.transactionService.totalExpense();
     }
 }

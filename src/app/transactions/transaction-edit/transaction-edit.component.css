@@ -1,0 +1,11 @@
+.type-transaction-div{
+    display: inline-block;
+    width: 50%;
+}
+input{
+    width: 100%;
+}
+.select-img{
+    width: 96px;
+    height: 96px;
+}
