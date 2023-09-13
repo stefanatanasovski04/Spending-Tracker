@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { TransactionListComponent } from './transactions/transaction-list/transaction-list.component';
 import { TransactionModule } from './transactions/transaction.module';
 import { CategoryModule } from './categories/category.module';
 import { RouterModule } from '@angular/router';
