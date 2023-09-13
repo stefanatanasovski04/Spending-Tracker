@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Transaction } from '../models/transactions';
 import { CategoryService } from '../categories/category.service';
 import { Category } from '../models/categories';
@@ -8,6 +8,7 @@ import { Category } from '../models/categories';
 })
 export class TransactionService {
  
+  transactionUpdated = new EventEmitter<void>();
 
   constructor(private categoryService: CategoryService) { }
 
@@ -24,6 +25,7 @@ export class TransactionService {
     this.transactions.push(transaction as Transaction);
     this.totalIncome();
     this.totalExpense();
+    this.transactionUpdated.emit();
   }
 
   updateTransaction(transaction: Transaction){
@@ -31,6 +33,7 @@ export class TransactionService {
     this.transactions[objIndex] = transaction;
     this.totalIncome();
     this.totalExpense();
+    this.transactionUpdated.emit();
   }
 
   totalIncome(): number{
@@ -40,7 +43,6 @@ export class TransactionService {
         total = Number(total) + Number(t.amount);
       }
     } );
-    console.log('Income: ' + total);
     return total;
   }
 
@@ -51,11 +53,22 @@ export class TransactionService {
         total = Number(total) + Number(t.amount);
       }
     } );
-    console.log('Expense: ' + total);
     return total;
   }
 
-
+  calculateExpenseByCategory() {
+    const expenseByCategory = new Map();
+    this.transactions
+      .filter(transaction => transaction.type === 1 && transaction.category)
+      .forEach(transaction => {
+        const categoryName = transaction?.category?.name;
+        const amount = transaction.amount;
+        expenseByCategory.set(categoryName, (expenseByCategory.get(categoryName) || 0) + amount);
+        //console.log(`${categoryName} - ${amount}`);
+      });
+    return Array.from(expenseByCategory, ([category, totalExpense]) => ({ category, totalExpense }));
+  }
+  
   transactions: Transaction[] = [
     {
       id: 0,
@@ -75,9 +88,9 @@ export class TransactionService {
     },
     {
       id: 2,
-      type: 0,
+      type: 1,
       date:  new Date('2023-08-08'),
-      category: this.categoryService.getCategory(0) as Category,
+      category: this.categoryService.getCategory(1) as Category,
       amount: 230,
       note: ''
     },

@@ -1,2 +1,32 @@
-<p>{{income}}</p>
-<p>{{expense}}</p>
+<div class="row mt-2">
+    <div class="col-lg-6">
+        <h5>Income:</h5>
+    </div>
+    <div class="col-lg-6">
+        <h5>{{income | currency}}</h5>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <h5>Expense:</h5>
+    </div>
+    <div class="col-lg-6">
+        <h5>{{expense | currency}}</h5>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <h5>Balance:</h5>
+    </div>
+    <div class="col-lg-6">
+        <h5>{{total | currency}}</h5>
+    </div>
+</div>
+
+<div class="div">
+    <ul>
+        <li *ngFor="let cat of spendingByCategory">{{cat.category}}:     {{cat.totalExpense}}</li>
+    </ul>
+</div>
