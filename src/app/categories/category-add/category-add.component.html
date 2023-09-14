@@ -1,41 +1,32 @@
-<div class="card-holder mt-5">
+<div class="card-holder col-10 offset-1 mt-5">
     <h2> {{pageTitle}}</h2>
     <div class="card-body mt-4">
         <form novalidate [formGroup]="categoryForm" (ngSubmit)="saveCategory()">
-            <div class="form-group">
-                <label for="categoryName">Name:</label>
-                <input class="form-control" id="categoryName" type="text" formControlName="categoryName" placeholder="Categoy Name...">            
-            </div>
-            <div class="form-group mt-2" >
-                <label for="categoryIcon">Icon: </label>
+            <div class="col-10 offset-1">
+                <div class="form-group">
+                    <label for="categoryName">Name:</label>
+                    <input class="form-control" id="categoryName" type="text" formControlName="categoryName" placeholder="Categoy Name...">            
+                </div>
+                <div class="form-group mt-2" >
+                    <label for="categoryIcon">Icon: </label>
+                    
+                    <div id="categoryIcon">
+                        <label *ngFor="let icon of icons">
+                            <input type="radio" name="iconId" value="{{icon.id}}" formControlName="iconId">
+                            <img [src]="icon?.iconUrl" class="icon-img-select">
+                        </label>
+                    </div>
+                </div>
                 
-                <div id="categoryIcon">
-                    <label *ngFor="let icon of icons">
-                        <input type="radio" name="iconId" value="{{icon.id}}" formControlName="iconId">
-                        <img [src]="icon?.iconUrl" class="icon-img-select">
-                    </label>
-                </div>
+                <div class="row mt-4">
+                    
+                      <button type="submit" class="btn btn-success btn-lg "
+                              style="width: 130px;"> Save </button>
+                      <a class="btn btn-outline-danger btn-lg "
+                              style="width: 130px; margin-left: 10px;"
+                              (click)="onCancel()"> Cancel </a>
+                  </div>
             </div>
-            
-            <div class="row mt-4">
-                <div class="col-md-4">
-                  <button type="submit" class="btn btn-outline-danger mr-3"
-                          style="width:80px"
-                         >
-                     Save
-                  </button>
-                  <a class="btn btn-outline-primary m-3"
-                          style="width:80px"
-                          (click)="onCancel()">
-                    Cancel
-                </a>
-                </div>
-              </div>
-
-
-
         </form>
-
-
     </div>
 </div>

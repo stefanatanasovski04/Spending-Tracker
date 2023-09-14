@@ -1,7 +1,10 @@
 <div class="row mt-2">
-    <h2 class="col-lg-6">Categories</h2>
-    <div class="col-3 offset-3">
-        <a class="btn btn-success" [routerLink]="['/categories','add']" >Add category</a>
+    <div class="heading-wrapper col-6">
+      <h2 class="heading-text">Categories</h2>
+    </div>
+    
+    <div class="add-btn-wrapper col-6">
+        <a class="btn btn-success btn-lg" [routerLink]="['/categories','add']" >Add new Category</a>
     </div>
 </div>
 
@@ -9,15 +12,15 @@
     <li *ngFor="let category of categories" class="mt-2">
         <div class="card-holder col-12">
             <div class="row g-0 list-row">
-              <div class="col-lg-4 mb-2 mt-2">
+              <div class="col-lg-2 mb-2 mt-2">
                 <img [src]="category.icon?.iconUrl" class="thumbnail-list" alt="...">
               </div>
-              <div class="col-lg-6 title-wrapper">
+              <div class="col-lg-7 title-wrapper">
                 <h5 class="card-title">{{category.name}}</h5>
               </div>
-              <div class="col-lg-2 dugme mt-4 mb-2">
-                <a [routerLink]="['/categories',category.id,'edit']" class="btn btn-outline-danger btn-wrapper"
-                  style="width: 90px; height: 90px;"><i>Edit</i></a>
+              <div class="col-lg-2  dugme mt-4 mb-2">
+                <a [routerLink]="['/categories',category.id,'edit']" class="btn btn-outline-danger btn-wrapper btn-lg"
+                  style="width: 96px; height: 48px;"><i>Edit</i></a>
               </div>
             </div>
           </div>

@@ -1,11 +1,26 @@
-.type-transaction-div{
-    display: inline-block;
-    width: 50%;
+.type-transaction-div {
+  display: inline-block;
+  width: 50%;
 }
-input{
-    width: 100%;
+input {
+  width: 100%;
 }
-.select-img{
-    width: 96px;
-    height: 96px;
+.select-img {
+  width: 96px;
+  height: 96px;
+}
+.card-holder {
+  margin-top: 50px;
+  padding: 30px;
+  border: 2px solid #616d67;
+  border-radius: 25px;
+  background-color: rgb(236, 228, 217);
+  font-family: "Times New Roman", serif;
+  font-size: 200%;
+}
+.form-control {
+  font-size: 70%;
+}
+select{
+    font-size: 70%;
 }

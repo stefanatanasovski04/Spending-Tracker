@@ -1,32 +1,44 @@
-<div class="row mt-2">
-    <div class="col-lg-6">
-        <h5>Income:</h5>
+<div class="card-holder">
+    <div class="col-10 offset-1">
+        <div class="col-5 title-wrapper">
+            <h5>Income:</h5>
+        </div>
+        <div class="col-5 title-wrapper">
+            <h5>{{income | currency}}</h5>
+        </div>
     </div>
-    <div class="col-lg-6">
-        <h5>{{income | currency}}</h5>
+
+    <div class="col-10 offset-1">
+        <div class="col-5 title-wrapper">
+            <h5>Expense:</h5>
+        </div>
+        <div class="col-5 title-wrapper">
+            <h5>{{expense | currency}}</h5>
+        </div>
+        <hr>
     </div>
+
+    <div *ngFor="let cat of spendingByCategory" class="col-10 offset-1">
+        <div class="col-5 title-wrapper">
+            <h5>{{cat.category}}:</h5>
+        </div>
+        <div class="col-5 title-wrapper">
+            <h5>{{cat.totalExpense|currency}}</h5>
+        </div>
+    </div>
+    <div class="col-10 offset-1"><hr></div>
+    <br><br>
+
+
+    <div class="col-10 offset-1">
+        <div class="col-5 title-wrapper">
+            <h5>Balance:</h5>
+        </div>
+        <div class="col-5 title-wrapper">
+            <h5>{{total | currency}}</h5>
+        </div>
+        <hr>
+    </div>
+
 </div>
 
-<div class="row">
-    <div class="col-lg-6">
-        <h5>Expense:</h5>
-    </div>
-    <div class="col-lg-6">
-        <h5>{{expense | currency}}</h5>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-6">
-        <h5>Balance:</h5>
-    </div>
-    <div class="col-lg-6">
-        <h5>{{total | currency}}</h5>
-    </div>
-</div>
-
-<div class="div">
-    <ul>
-        <li *ngFor="let cat of spendingByCategory">{{cat.category}}:     {{cat.totalExpense}}</li>
-    </ul>
-</div>

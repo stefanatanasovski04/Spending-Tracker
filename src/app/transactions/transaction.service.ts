@@ -57,15 +57,17 @@ export class TransactionService {
   }
 
   calculateExpenseByCategory() {
+    console.log("In calculateExpenseByCategory() ");
     const expenseByCategory = new Map();
     this.transactions
       .filter(transaction => transaction.type === 1 && transaction.category)
       .forEach(transaction => {
         const categoryName = transaction?.category?.name;
         const amount = transaction.amount;
+        console.log(`Name:  ${categoryName} Amount: ${amount}`)
         expenseByCategory.set(categoryName, (expenseByCategory.get(categoryName) || 0) + amount);
-        //console.log(`${categoryName} - ${amount}`);
       });
+    
     return Array.from(expenseByCategory, ([category, totalExpense]) => ({ category, totalExpense }));
   }
   
@@ -94,5 +96,13 @@ export class TransactionService {
       amount: 230,
       note: ''
     },
+    {
+      id: 4,
+      type: 1,
+      date:  new Date('2023-08-08'),
+      category: this.categoryService.getCategory(0) as Category,
+      amount: 220,
+      note: 'Eating at restourant'
+    }
   ];
 }

@@ -1,0 +1,22 @@
+.card-holder {
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 2px solid #616d67;
+    padding: 20px;
+    background-color: rgb(236, 228, 217);
+    font-family: 'Times New Roman', serif;
+  }
+
+  .title-wrapper,.heading-wrapper, .add-btn-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-title{
+
+  }
+  .heading-text{
+    font-size:300% ;
+    color: rgb(7, 7, 7);
+    font-family: 'Times New Roman', serif;
+  }
