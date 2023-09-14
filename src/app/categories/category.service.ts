@@ -87,18 +87,23 @@ export class CategoryService {
   categories: Category[] = [
     {
       id: 0,
-      name: 'Food',
-      icon: this.getIcon(10)
-    },
-    {
-      id: 1,
-      name: 'Office',
+      name: 'Salary',
       icon: this.getIcon(6)
     },
     {
+      id: 1,
+      name: 'Bills',
+      icon: this.getIcon(0)
+    },
+    {
       id: 2,
-      name: 'Sports',
-      icon: this.getIcon(8)
+      name: 'Groceries',
+      icon: this.getIcon(1)
+    },
+    {
+      id: 3,
+      name: 'Food',
+      icon: this.getIcon(10)
     }
   ];
 

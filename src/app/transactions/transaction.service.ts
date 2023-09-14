@@ -74,32 +74,32 @@ export class TransactionService {
       id: 0,
       type: 0,
       date:  new Date('2023-08-08'),
-      category: this.categoryService.getCategory(2) as Category,
-      amount: 100,
-      note: 'Football pay'
+      category: this.categoryService.getCategory(0) as Category,
+      amount: 3000,
+      note: ''
     },
     {
       id: 1,
       type: 1,
       date:  new Date('2023-08-08'),
-      category: this.categoryService.getCategory(0) as Category,
-      amount: 100,
-      note: 'Eating at restourant'
+      category: this.categoryService.getCategory(1) as Category,
+      amount: 150,
+      note: 'Phone Bill'
     },
     {
       id: 2,
       type: 1,
       date:  new Date('2023-08-08'),
-      category: this.categoryService.getCategory(1) as Category,
+      category: this.categoryService.getCategory(2) as Category,
       amount: 230,
-      note: ''
+      note: 'Wallmart'
     },
     {
-      id: 4,
+      id: 3,
       type: 1,
       date:  new Date('2023-08-08'),
-      category: this.categoryService.getCategory(0) as Category,
-      amount: 220,
+      category: this.categoryService.getCategory(3) as Category,
+      amount: 175,
       note: 'Eating at restourant'
     }
   ];
