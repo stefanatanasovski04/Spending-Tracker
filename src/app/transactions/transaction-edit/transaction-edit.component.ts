@@ -60,10 +60,10 @@ export class TransactionEditComponent {
 
     // Update data on the form
     this.transactionForm.patchValue({
-      transactionType: this.transaction?.type,
+      transactionType: Number(this.transaction?.type),
       transactionDate: this.transaction?.date,
       categoryId: this.transaction?.category?.id,
-      transactionAmount: this.transaction?.amount,
+      transactionAmount: Number(this.transaction?.amount),
       transactionNote: this.transaction?.note
     })
   }

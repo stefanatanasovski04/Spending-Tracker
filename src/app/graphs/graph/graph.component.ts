@@ -8,9 +8,21 @@ import { TransactionService } from 'src/app/transactions/transaction.service';
   styleUrls: ['./graph.component.css']
 })
 export class GraphComponent {
-  public options: AgChartOptions;
+  public options!: AgChartOptions;
+  pageTitle: string = 'This graph shows how much money have you spend per category!'
 
-  constructor(private transactionService: TransactionService) {
+  constructor(private transactionService: TransactionService) {}
+  
+  ngOnInit(){
+    this.tmp();
+    this.transactionService.transactionUpdated.subscribe(() => {
+      this.tmp();
+    })
+  }
+
+  
+
+  private tmp(){
     this.options = {
       autoSize: true,
       data: this.transactionService.calculateExpenseByCategory(),
@@ -51,6 +63,7 @@ export class GraphComponent {
         },
       ],
     };
+    console.log(this.options.data);
   }
-
+  
 }

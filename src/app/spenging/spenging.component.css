@@ -1,5 +1,5 @@
 .card-holder {
-    margin-top: 20px;
+    margin-top: 10px;
     border-radius: 25px;
     border: 2px solid #616d67;
     padding: 20px;
@@ -12,11 +12,27 @@
     justify-content: center;
     align-items: center;
   }
-  .card-title{
-
-  }
   .heading-text{
     font-size:300% ;
     color: rgb(7, 7, 7);
     font-family: 'Times New Roman', serif;
+  }
+  .income {
+    color: rgb(55, 211, 55);
+    font-size: 200%;
+  
+  }
+  .expense {
+    color: red;
+    font-size: 200%;
+  }
+  .lbl{
+    font-size: 200%;
+  }
+  .balance{
+    color: rgb(115, 115, 223);
+    font-size: 200%;
+  }
+  .heading-text{
+    text-align: center;
   }

@@ -1,19 +1,23 @@
+<div class="heading-wrapper col-12 mt-2">
+    <h2 class="heading-text">Your Spendings</h2>
+</div>
+
 <div class="card-holder">
     <div class="col-10 offset-1">
         <div class="col-5 title-wrapper">
-            <h5>Income:</h5>
+            <h5 class="lbl">Income:</h5>
         </div>
         <div class="col-5 title-wrapper">
-            <h5>{{income | currency}}</h5>
+            <h5 class="income">{{income | currency}}</h5>
         </div>
     </div>
 
     <div class="col-10 offset-1">
         <div class="col-5 title-wrapper">
-            <h5>Expense:</h5>
+            <h5 class="lbl">Expense:</h5>
         </div>
         <div class="col-5 title-wrapper">
-            <h5>{{expense | currency}}</h5>
+            <h5 class="expense">{{expense | currency}}</h5>
         </div>
         <hr>
     </div>
@@ -21,24 +25,31 @@
     <div *ngFor="let cat of spendingByCategory" class="col-10 offset-1">
         <div class="col-5 title-wrapper">
             <h5>{{cat.category}}:</h5>
+            <hr>
         </div>
         <div class="col-5 title-wrapper">
             <h5>{{cat.totalExpense|currency}}</h5>
+            <hr>
         </div>
     </div>
-    <div class="col-10 offset-1"><hr></div>
+    <div class="col-10 offset-1">
+        <hr>
+    </div>
     <br><br>
 
 
     <div class="col-10 offset-1">
         <div class="col-5 title-wrapper">
-            <h5>Balance:</h5>
+            <h5 class="lbl">Balance:</h5>
         </div>
         <div class="col-5 title-wrapper">
-            <h5>{{total | currency}}</h5>
+            <h5 class="balance">{{total | currency}}</h5>
         </div>
-        <hr>
     </div>
 
-</div>
 
+
+</div>
+<div class="col-8 offset-2 mt-4">
+    <a class="btn btn-success" style="width: 100%;">Add Transaction</a>
+</div>

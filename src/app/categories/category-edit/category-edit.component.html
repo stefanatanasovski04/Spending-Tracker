@@ -1,7 +1,8 @@
-<div class="card-holder mt-5">
+<div class="card-holder col-10 offset-1 mt-5">
     <h2> {{pageTitle}}</h2>
     <div class="card-body mt-4">
         <form novalidate [formGroup]="categoryForm" (ngSubmit)="saveCategory()">
+            <div class="col-10 offset-1">
             <div class="form-group">
                 <label for="categoryName">Name:</label>
                 <input class="form-control" id="categoryName" type="text" formControlName="categoryName">            
@@ -33,6 +34,7 @@
               </div>
 
 
+            </div>
 
         </form>
 

@@ -30,7 +30,6 @@ export class TransactionAddComponent implements OnInit {
       categoryId: null,
       transactionAmount:"",
       transactionNote:""
-
     })
 
     this.categories = this.categoryService.getCategories();
@@ -44,10 +43,10 @@ export class TransactionAddComponent implements OnInit {
     let cateogryId: number = Number(this.transactionForm.value.categoryId);
     if(this.transactionForm.valid){
       let t = {
-        type: this.transactionForm.value.transactionType,
+        type: Number(this.transactionForm.value.transactionType),
         date: this.transactionForm.value.transactionDate,
         category: this.categoryService.getCategory(cateogryId) as Category,
-        amount: this.transactionForm.value.transactionAmount,
+        amount: Number(this.transactionForm.value.transactionAmount),
         note: this.transactionForm.value.transactionNote
       }
       console.log(t);
