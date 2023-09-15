@@ -19,7 +19,7 @@
           <h5 class="card-title">{{category.name}}</h5>
         </div>
         <div class="col-lg-2  dugme mt-4 mb-2">
-          <a [routerLink]="['/categories',category.id,'edit']" class="btn btn-outline-danger btn-wrapper btn-lg"
+          <a [routerLink]="['/categories',category.id,'edit']" class="btn btn-outline-secondary btn-wrapper btn-lg"
             style="width: 96px; height: 48px;"><i>Edit</i></a>
           <a (click)="deleteCategory(category.id)" class="btn btn-danger btn-wrapper btn-lg"
             style="width: 90px; height: 48px; margin-left: 5px;">Delete</a>

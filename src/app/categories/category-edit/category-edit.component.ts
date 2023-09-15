@@ -45,7 +45,6 @@ export class CategoryEditComponent {
     if(this.categoryForm){
       this.categoryForm.reset();
     }
-
     // Update the data on the form
     this.categoryForm.patchValue({
       categoryName: this.category?.name,

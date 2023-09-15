@@ -33,7 +33,8 @@ export class CategoryService {
   }
 
   updateCategory(category: Category) {
-    let objIndex = this.categories.findIndex((obj => obj.id == category.id));
+    let objIndex = this.categories
+      .findIndex((obj => obj.id == category.id));
     this.categories[objIndex] = category;
     this.categoryUpdated.emit();
   }

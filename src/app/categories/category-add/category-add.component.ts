@@ -34,8 +34,6 @@ export class CategoryAddComponent {
   }
 
   saveCategory(): void {
-    console.log(this.categoryForm.value.categoryName);
-    console.log(this.categoryForm.value.iconId);
     let iconId: number = Number(this.categoryForm.value.iconId);
     if (this.categoryForm.valid) {
       let c = {

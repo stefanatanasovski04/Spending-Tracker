@@ -49,7 +49,6 @@ export class TransactionAddComponent implements OnInit {
         amount: Number(this.transactionForm.value.transactionAmount),
         note: this.transactionForm.value.transactionNote
       }
-      console.log(t);
       this.transactionService.createTransaction(t);
       this.onSaveComplete();
     }
