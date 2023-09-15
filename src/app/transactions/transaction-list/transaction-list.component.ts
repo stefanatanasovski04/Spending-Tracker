@@ -10,6 +10,8 @@ import { Transaction } from 'src/app/models/transactions';
 })
 export class TransactionListComponent {
 
+
+
   transactions!: Transaction[];
   income!: number;
   expense!: number;
@@ -20,8 +22,20 @@ export class TransactionListComponent {
     ){}
 
     ngOnInit(){
+      this.updateValues();
+      this.transactionService.transactionUpdated.subscribe(() => {
+        this.updateValues();
+      })
+    }
+
+    updateValues(){
       this.transactions = this.transactionService.getTransactions();
       this.income = this.transactionService.totalIncome();
       this.expense = this.transactionService.totalExpense();
+    }
+
+    deleteTransaction(id: number) {
+      console.log(`In delete: ${id}`)
+      this.transactionService.deleteTransaction(id);
     }
 }

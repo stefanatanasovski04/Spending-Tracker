@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Category } from '../models/categories';
 import { CategoryService } from '../categories/category.service';
 import { TransactionService } from '../transactions/transaction.service';
@@ -28,6 +28,9 @@ export class SpengingComponent {
     this.transactionService.transactionUpdated.subscribe(() => {
         this.updateValues();
     });
+    this.categoryService.categoryUpdated.subscribe(() =>{
+      this.updateValues();
+    })
   }
 
   private updateValues(){

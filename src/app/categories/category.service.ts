@@ -1,42 +1,53 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Category } from '../models/categories';
 import { Icon } from '../models/icons';
+import { TransactionService } from '../transactions/transaction.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  constructor() { }
+  categoryUpdated = new EventEmitter<void>();
 
-  getCategories(){
+  getCategories() {
     return this.categories;
   }
 
-  getIcons(){
+  getIcons() {
     return this.icons;
   }
 
-  getCategory(id: number): Category | undefined{
+  getCategory(id: number): Category | undefined {
     return this.categories.find(e => e.id === id);
   }
 
-  getIcon(id: number): Icon | undefined{
+  getIcon(id: number): Icon | undefined {
     return this.icons.find(e => e.id === id);
   }
 
-  createCategory(category: any){
+  createCategory(category: any) {
     category.id = Math.max(...this.getCategories().map(o => o.id)) + 1;
     this.categories.push(category as Category);
+    this.categoryUpdated.emit();
   }
 
-  updateCategory(category: Category){
+  updateCategory(category: Category) {
     let objIndex = this.categories.findIndex((obj => obj.id == category.id));
     this.categories[objIndex] = category;
+    this.categoryUpdated.emit();
   }
-  
 
-  
+  deleteCategory(id: number) {
+    let objIndex = this.categories.findIndex((c => c.id == id));
+    if(objIndex != -1){
+      this.categories.splice(objIndex,1);
+    }
+    this.categoryUpdated.emit();
+  }
+
+
+
   icons: Icon[] = [
     {
       id: 0,

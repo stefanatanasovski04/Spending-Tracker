@@ -36,6 +36,15 @@ export class TransactionService {
     this.transactionUpdated.emit();
   }
 
+  deleteTransaction(id: number){
+    const objWithIndex = this.transactions.findIndex((t) => t.id === id);
+    if(objWithIndex > -1){
+      this.transactions.splice(objWithIndex,1);
+    }
+    this.transactionUpdated.emit();
+  }
+
+
   totalIncome(): number{
     let total: number = 0;
     this.transactions.forEach((t) => {
